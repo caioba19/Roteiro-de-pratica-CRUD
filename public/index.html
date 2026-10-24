@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CRUD de Alunos - Aula Prática Prof. Celso</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/app.js" defer></script>
+</head>
+<body>
+  <!-- Cabeçalho da aplicação -->
+  <header class="topo">
+    <div class="largura">
+      <p class="marca">Atividade Prática · TypeScript + MySQL</p>
+      <h1>Sistema de Cadastro de Alunos</h1>
+      <p>Operações de CRUD (Criar, Consultar, Atualizar e Excluir) integradas ao banco de dados.</p>
+    </div>
+  </header>
+
+  <main class="largura">
+    <!-- Formulário de Cadastro e Edição -->
+    <section class="card" aria-labelledby="titulo-cadastro">
+      <h2 id="titulo-cadastro">Cadastrar Aluno</h2>
+      
+      <form id="form-cadastro" class="grade">
+        <!-- Campo oculto para guardar o ID quando estiver editando -->
+        <input type="hidden" id="id-edicao" value="">
+
+        <div>
+          <label for="nome">Nome Completo</label>
+          <input id="nome" name="nome" type="text" placeholder="Ex: Ana Silva" maxlength="120" required>
+        </div>
+
+        <div>
+          <label for="email">E-mail</label>
+          <input id="email" name="email" type="email" placeholder="Ex: ana.silva@email.com" maxlength="160" required>
+        </div>
+
+        <div>
+          <label for="curso">Curso</label>
+          <input id="curso" name="curso" type="text" placeholder="Ex: Desenvolvimento Web" maxlength="120" required>
+        </div>
+
+        <div class="botoes-form">
+          <button type="submit" id="btn-salvar">Cadastrar</button>
+          <button type="button" id="btn-cancelar-edicao" class="secundario" hidden>Cancelar Edição</button>
+        </div>
+      </form>
+
+      <!-- Mensagens de feedback para o usuário -->
+      <p id="mensagem" class="mensagem" role="status" aria-live="polite"></p>
+    </section>
+
+    <!-- Seção de Consulta e Listagem -->
+    <section class="card" aria-labelledby="titulo-consulta">
+      <h2 id="titulo-consulta">Alunos Cadastrados</h2>
+
+      <!-- Filtro de busca por nome -->
+      <form id="form-busca" class="busca">
+        <div>
+          <label for="busca-nome">Pesquisar por nome</label>
+          <input id="busca-nome" name="nome" placeholder="Digite o nome ou parte dele...">
+        </div>
+        <button type="submit">Buscar</button>
+        <button id="limpar-busca" class="secundario" type="button">Limpar Filtro</button>
+      </form>
+
+      <p id="estado-lista" class="mensagem" role="status" aria-live="polite"></p>
+
+      <!-- Tabela de Alunos -->
+      <div class="tabela-rolagem">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col" style="width: 70px;">ID</th>
+              <th scope="col">Nome</th>
+              <th scope="col">E-mail</th>
+              <th scope="col">Curso</th>
+              <th scope="col" style="width: 170px;">Ações</th>
+            </tr>
+          </thead>
+          <tbody id="lista-alunos">
+            <!-- As linhas são preenchidas dinamicamente pelo app.js -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Caixa de confirmação para exclusão -->
+      <div id="confirmacao" class="confirmacao" role="group" aria-label="Confirmar exclusão" hidden>
+        <p id="texto-confirmacao">Tem certeza de que deseja excluir este aluno? Esta ação não pode ser desfeita.</p>
+        <button id="confirmar-exclusao" class="perigo" type="button">Sim, Excluir</button>
+        <button id="cancelar-exclusao" class="secundario" type="button">Cancelar</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="largura">
+    <p>Projeto Prático · Desenvolvido com Node.js, Express, TypeScript e MySQL (XAMPP).</p>
+  </footer>
+</body>
+</html>
