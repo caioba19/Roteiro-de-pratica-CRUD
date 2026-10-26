@@ -2,6 +2,7 @@
 > **Atividade Prática · Desenvolvimento Web e Banco de Dados**  
 > **Professor:** Celso Barreto · **SENAI Bahia**  
 > **Tecnologias:** Node.js, TypeScript, Express, MySQL e HTML5/CSS3
+> https://senaiba.my.canva.site/praticafs
 
 ---
 
